@@ -4,25 +4,25 @@ config:
   pipelines:
     name: bluetooth-cicd
 environments:
-- apps:
-  - name: app-bluetooth-module-inventory
-    services:
-    - name: bluetooth-module-inventory
-      pipelines:
-        integration:
-          bindings:
-          - bluetooth-dev-app-bluetooth-module-inventory-bluetooth-module-inventory-binding
+  - apps:
+      - name: app-bluetooth
+        services:
+          - name: bluetooth
+            pipelines:
+              integration:
+                bindings:
+                  - bluetooth-dev-app-bluetooth-binding
+                  - github-push-binding
+            source_url: https://github.com/spuranam/bluetooth-module-inventory.git
+            webhook:
+              secret:
+                name: webhook-secret-bluetooth-dev-bluetooth-module-inventory
+                namespace: bluetooth-cicd
+    name: bluetooth-dev
+    pipelines:
+      integration:
+        bindings:
           - github-push-binding
-      source_url: https://github.com/spuranam/bluetooth-module-inventory.git
-      webhook:
-        secret:
-          name: webhook-secret-bluetooth-dev-bluetooth-module-inventory
-          namespace: bluetooth-cicd
-  name: bluetooth-dev
-  pipelines:
-    integration:
-      bindings:
-      - github-push-binding
-      template: app-ci-template
-- name: bluetooth-stage
+        template: app-ci-template
+  - name: bluetooth-stage
 gitops_url: https://github.com/spuranam/gitops.git

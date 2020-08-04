@@ -25,7 +25,7 @@ spec:
     template:
       name: ci-dryrun-from-push-template
   - bindings:
-    - name: bluetooth-dev-app-bluetooth-module-inventory-bluetooth-module-inventory-binding
+    - name: bluetooth-dev-app-bluetooth-binding
     - name: github-push-binding
     interceptors:
     - github:
@@ -39,7 +39,7 @@ spec:
         overlays:
         - expression: split(body.ref,'/')[2]
           key: ref
-    name: app-ci-build-from-push-bluetooth-module-inventory
+    name: app-ci-build-from-push-bluetooth
     template:
       name: app-ci-template
 status:
