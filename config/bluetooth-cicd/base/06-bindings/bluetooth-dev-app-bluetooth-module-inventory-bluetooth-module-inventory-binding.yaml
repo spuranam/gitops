@@ -1,0 +1,13 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  creationTimestamp: null
+  name: bluetooth-dev-app-bluetooth-module-inventory-bluetooth-module-inventory-binding
+  namespace: bluetooth-cicd
+spec:
+  params:
+  - name: imageRepo
+    value: quay.io/spuranam/bluetooth-module-inventory
+  - name: tlsVerify
+    value: "true"
+status: {}

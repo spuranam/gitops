@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  name: bluetooth-dev-app-bluetooth-module-inventory
+  namespace: argocd
+spec:
+  destination:
+    namespace: bluetooth-dev
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: environments/bluetooth-dev/apps/app-bluetooth-module-inventory/base
+    repoURL: https://github.com/spuranam/gitops.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""

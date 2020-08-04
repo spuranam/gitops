@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    app.openshift.io/vcs-uri: https://github.com/spuranam/gitops.git
+  creationTimestamp: null
+  name: bluetooth-cicd
+spec: {}
+status: {}

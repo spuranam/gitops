@@ -1,0 +1,47 @@
+apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  creationTimestamp: null
+  name: cicd-event-listener
+  namespace: bluetooth-cicd
+spec:
+  serviceAccountName: pipeline
+  triggers:
+  - bindings:
+    - name: github-push-binding
+    interceptors:
+    - github:
+        secretRef:
+          namespace: bluetooth-cicd
+          secretKey: webhook-secret-key
+          secretName: gitops-webhook-secret
+    - cel:
+        filter: (header.match('X-GitHub-Event', 'push') && body.repository.full_name
+          == 'spuranam/gitops')
+        overlays:
+        - expression: split(body.ref,'/')[2]
+          key: ref
+    name: ci-dryrun-from-push
+    template:
+      name: ci-dryrun-from-push-template
+  - bindings:
+    - name: bluetooth-dev-app-bluetooth-module-inventory-bluetooth-module-inventory-binding
+    - name: github-push-binding
+    interceptors:
+    - github:
+        secretRef:
+          namespace: bluetooth-cicd
+          secretKey: webhook-secret-key
+          secretName: webhook-secret-bluetooth-dev-bluetooth-module-inventory
+    - cel:
+        filter: (header.match('X-GitHub-Event', 'push') && body.repository.full_name
+          == 'spuranam/bluetooth-module-inventory')
+        overlays:
+        - expression: split(body.ref,'/')[2]
+          key: ref
+    name: app-ci-build-from-push-bluetooth-module-inventory
+    template:
+      name: app-ci-template
+status:
+  configuration:
+    generatedName: ""

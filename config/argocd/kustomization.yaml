@@ -1,0 +1,5 @@
+resources:
+- argo-app.yaml
+- argocd.yaml
+- bluetooth-dev-app-bluetooth-module-inventory-app.yaml
+- cicd-app.yaml

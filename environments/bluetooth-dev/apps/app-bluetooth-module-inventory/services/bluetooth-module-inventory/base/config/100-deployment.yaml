@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: bluetooth-module-inventory
+  namespace: bluetooth-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: bluetooth-module-inventory
+      app.kubernetes.io/part-of: app-bluetooth-module-inventory
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/name: bluetooth-module-inventory
+        app.kubernetes.io/part-of: app-bluetooth-module-inventory
+    spec:
+      containers:
+      - image: nginxinc/nginx-unprivileged:latest
+        imagePullPolicy: Always
+        name: bluetooth-module-inventory
+        ports:
+        - containerPort: 8080
+        resources: {}
+      serviceAccountName: default
+status: {}

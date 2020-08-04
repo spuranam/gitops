@@ -1,0 +1,3 @@
+resources:
+- bluetooth-dev-environment.yaml
+- bluetooth-dev-rolebinding.yaml

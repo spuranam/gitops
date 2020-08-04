@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: regcred
+  namespace: bluetooth-cicd
+spec:
+  encryptedData:
+    .dockerconfigjson: AgDaHiR8tuQswEtqd/19z2EwvrKefFtDU1av/j7AQzBTORXbTo3VQw+SIX4l17Fy1IAz0YsIW9nmfVtkorWdKDzKx7Ty/ZoFn4rpw8DInNTTQKW6XwDX5aTNkPk9Lx2NXXTmrrSUd5bV1ySdQjd1jji1b3Df5Fien0N1JyTgo8w9BzYEvZtG1JLlPmN6L96iHw0mfPe4oywQPCW6g/Ja1SY91CCtArDc7DtzB4YMEOiRZ6B81XVlT2A3BM0fxcZd6MflYRyDYUOP1kg+dPh8ZGGpr/o185Ua5quJioT9OB0kebCv3maTtc/OQYnME3KDkg4DGLsXgy2VBMzaZO3lQi4UsesmVXnwZbcaZCE3oNjiXUUVpZlKaMaA/zFXDikMGLp3YblDzNzo9zcSxZQNSAwzislDml3fSJK+HKdpMYDiYirvJFlAZuyiJb6ZtUTvajWY+aUwebNhS3eO2GceDxm2dODbL0+sX2cI8Puk7zgJy8Hfky4mP3ayztD5Ugb4jJJkUVFYHX5uf+bdgz0F0TvUjK4+1cXTc9XguuxfxEH+RiSVrN6iRwwIHDAsGPmb6epRsfuCMAGmqYikCBwZEXQzm3rOcZwfE+bIQJea+nwutqfjNfzJ3mOxCJqcH8o/DyZLZUAueDbSx/HyVAlN5ivNgXCSfITOV+3VUBXU7/YYz3R/YOxPiC1N/Xx9D1UzwcKZ+3R3GuGIJdpUQICGWGUEXVu3eCfard7rtDtJVk0al7XUVAldomGbvumzEPjeUFBgnVR44lZ09bLE4TjZ7NZEmAKVJOk+exMQt61j0/ZBJWnLixPNfxk6uF7Cd0JzOyahbx/FyCpCHtlObI/HIswXcDbxST7wxoASj69tee0fV845A5qWNzUo2zIvrFC7PORWsz/LvuxkHLWNt7rBTsDD8V5chcQAwqEyqSOpJsUxeu8AsxWa+MvLYa+X
+  template:
+    metadata:
+      creationTimestamp: null
+      name: regcred
+      namespace: bluetooth-cicd
+    type: kubernetes.io/dockerconfigjson
+status: {}
